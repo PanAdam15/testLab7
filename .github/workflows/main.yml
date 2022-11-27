@@ -14,11 +14,11 @@ jobs:
       #Skonfigurowanie buildxa
       - name: Buildx set-up
         id: buildx
-        uses: docker/setup-buildx-action@v2.2.1
+        uses: docker/setup-buildx-action@v1
         
       #Instalacja QEMU
       - name: Docker Setup QEMU
-        uses: docker/setup-qemu-action@v2.1.0
+        uses: docker/setup-qemu-action@v2
 
       #Konfiguracja cachowania
       - name: Cache Docker layers
@@ -46,7 +46,8 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: ${{secrets.USER_NAME}}/siedemlab:latest
+          tags: |
+            panadam15/lab7:latest
       
       #Przenies cache'a
       - name: Move cache
