@@ -3,7 +3,7 @@ FROM node:alpine
 WORKDIR '/app'
 ENV NODE_OPTIONS=--openssl-legacy-provider
 COPY package.json .
-RUN npm install -g yarn
+RUN npm install -timeout=600000
 
 COPY . .
 
